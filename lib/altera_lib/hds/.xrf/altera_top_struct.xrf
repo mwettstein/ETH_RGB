@@ -1,0 +1,158 @@
+DESIGN altera_top
+VIEW symbol.sb
+NO_GRAPHIC 0
+DESIGN altera_top
+VIEW symbol.sb
+GRAPHIC 18,0 13 0 
+DESIGN altera_top
+VIEW symbol.sb
+GRAPHIC 102,0 19 0 
+DESIGN altera_top
+VIEW symbol.sb
+GRAPHIC 108,0 20 0 
+DESIGN altera_top
+VIEW symbol.sb
+GRAPHIC 225,0 21 0 
+DESIGN altera_top
+VIEW symbol.sb
+GRAPHIC 219,0 22 0 
+DESIGN altera_top
+VIEW symbol.sb
+GRAPHIC 231,0 23 0 
+DESIGN altera_top
+VIEW symbol.sb
+GRAPHIC 336,0 24 0 
+DESIGN altera_top
+VIEW symbol.sb
+GRAPHIC 243,0 25 0 
+DESIGN altera_top
+VIEW symbol.sb
+GRAPHIC 299,0 26 0 
+DESIGN altera_top
+VIEW symbol.sb
+GRAPHIC 237,0 27 0 
+DESIGN altera_top
+VIEW symbol.sb
+GRAPHIC 305,0 28 0 
+DESIGN altera_top
+VIEW symbol.sb
+GRAPHIC 1,0 31 0 
+DESIGN altera_top
+VIEW symbol.sb
+GRAPHIC 1,0 32 0 
+DESIGN altera_top
+VIEW struct.bd
+NO_GRAPHIC 35
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 10,0 51 0 
+DESIGN altera_top
+VIEW struct.bd
+NO_GRAPHIC 56
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 0,0 59 2 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 302,0 64 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 310,0 65 0 
+DESIGN altera_top
+VIEW struct.bd
+NO_GRAPHIC 66
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 181,0 68 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 188,0 69 0 
+DESIGN altera_top
+VIEW struct.bd
+NO_GRAPHIC 71
+LIBRARY altera_lib
+DESIGN my_altpll
+VIEW @s@y@n
+GRAPHIC 97,0 73 0 
+DESIGN altera_top
+VIEW struct.bd
+NO_GRAPHIC 80
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 169,0 82 0 
+DESIGN altera_top
+VIEW struct.bd
+NO_GRAPHIC 91
+LIBRARY altera_lib
+DESIGN altera_top
+VIEW struct.bd
+NO_GRAPHIC 93
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 97,0 96 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 169,0 97 0 
+DESIGN altera_top
+VIEW struct.bd
+NO_GRAPHIC 100
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 318,0 103 0 
+DESIGN altera_top
+VIEW struct.bd
+NO_GRAPHIC 107
+DESIGN altera_top
+VIEW struct.bd
+NO_GRAPHIC 108
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 97,0 110 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 270,0 112 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 278,0 113 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 181,0 114 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 188,0 115 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 403,0 116 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 169,0 118 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 195,0 120 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 304,0 121 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 312,0 122 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 219,0 123 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 181,0 124 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 188,0 125 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 358,0 126 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 181,0 130 0 
+DESIGN altera_top
+VIEW struct.bd
+GRAPHIC 188,0 131 0 
+DESIGN altera_top
+VIEW struct.bd
+NO_GRAPHIC 133
