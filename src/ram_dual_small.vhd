@@ -4,7 +4,7 @@
 -- MODULE: altsyncram 
 
 -- ============================================================
--- File Name: ram_dual.vhd
+-- File Name: ram_dual_small.vhd
 -- Megafunction Name(s):
 -- 			altsyncram
 --
@@ -40,22 +40,22 @@ USE ieee.std_logic_1164.all;
 LIBRARY altera_mf;
 USE altera_mf.altera_mf_components.all;
 
-ENTITY ram_dual IS
+ENTITY ram_dual_small IS
 	PORT
 	(
 		data		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
-		rdaddress		: IN STD_LOGIC_VECTOR (14 DOWNTO 0);
+		rdaddress		: IN STD_LOGIC_VECTOR (13 DOWNTO 0);
 		rdclock		: IN STD_LOGIC ;
 		rden		: IN STD_LOGIC  := '1';
-		wraddress		: IN STD_LOGIC_VECTOR (14 DOWNTO 0);
+		wraddress		: IN STD_LOGIC_VECTOR (13 DOWNTO 0);
 		wrclock		: IN STD_LOGIC  := '1';
 		wren		: IN STD_LOGIC  := '0';
 		q		: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
 	);
-END ram_dual;
+END ram_dual_small;
 
 
-ARCHITECTURE SYN OF ram_dual IS
+ARCHITECTURE SYN OF ram_dual_small IS
 
 	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (15 DOWNTO 0);
 
@@ -71,15 +71,15 @@ BEGIN
 		clock_enable_output_b => "BYPASS",
 		intended_device_family => "MAX 10",
 		lpm_type => "altsyncram",
-		numwords_a => 32768,
-		numwords_b => 32768,
+		numwords_a => 16384,
+		numwords_b => 16384,
 		operation_mode => "DUAL_PORT",
 		outdata_aclr_b => "NONE",
 		outdata_reg_b => "CLOCK1",
 		power_up_uninitialized => "FALSE",
 		rdcontrol_reg_b => "CLOCK1",
-		widthad_a => 15,
-		widthad_b => 15,
+		widthad_a => 14,
+		widthad_b => 14,
 		width_a => 16,
 		width_b => 16,
 		width_byteena_a => 1
@@ -132,7 +132,7 @@ END SYN;
 -- Retrieval info: PRIVATE: JTAG_ENABLED NUMERIC "0"
 -- Retrieval info: PRIVATE: JTAG_ID STRING "NONE"
 -- Retrieval info: PRIVATE: MAXIMUM_DEPTH NUMERIC "0"
--- Retrieval info: PRIVATE: MEMSIZE NUMERIC "524288"
+-- Retrieval info: PRIVATE: MEMSIZE NUMERIC "262144"
 -- Retrieval info: PRIVATE: MEM_IN_BITS NUMERIC "1"
 -- Retrieval info: PRIVATE: MIFfilename STRING ""
 -- Retrieval info: PRIVATE: OPERATION_MODE NUMERIC "2"
@@ -169,37 +169,37 @@ END SYN;
 -- Retrieval info: CONSTANT: CLOCK_ENABLE_OUTPUT_B STRING "BYPASS"
 -- Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "MAX 10"
 -- Retrieval info: CONSTANT: LPM_TYPE STRING "altsyncram"
--- Retrieval info: CONSTANT: NUMWORDS_A NUMERIC "32768"
--- Retrieval info: CONSTANT: NUMWORDS_B NUMERIC "32768"
+-- Retrieval info: CONSTANT: NUMWORDS_A NUMERIC "16384"
+-- Retrieval info: CONSTANT: NUMWORDS_B NUMERIC "16384"
 -- Retrieval info: CONSTANT: OPERATION_MODE STRING "DUAL_PORT"
 -- Retrieval info: CONSTANT: OUTDATA_ACLR_B STRING "NONE"
 -- Retrieval info: CONSTANT: OUTDATA_REG_B STRING "CLOCK1"
 -- Retrieval info: CONSTANT: POWER_UP_UNINITIALIZED STRING "FALSE"
 -- Retrieval info: CONSTANT: RDCONTROL_REG_B STRING "CLOCK1"
--- Retrieval info: CONSTANT: WIDTHAD_A NUMERIC "15"
--- Retrieval info: CONSTANT: WIDTHAD_B NUMERIC "15"
+-- Retrieval info: CONSTANT: WIDTHAD_A NUMERIC "14"
+-- Retrieval info: CONSTANT: WIDTHAD_B NUMERIC "14"
 -- Retrieval info: CONSTANT: WIDTH_A NUMERIC "16"
 -- Retrieval info: CONSTANT: WIDTH_B NUMERIC "16"
 -- Retrieval info: CONSTANT: WIDTH_BYTEENA_A NUMERIC "1"
 -- Retrieval info: USED_PORT: data 0 0 16 0 INPUT NODEFVAL "data[15..0]"
 -- Retrieval info: USED_PORT: q 0 0 16 0 OUTPUT NODEFVAL "q[15..0]"
--- Retrieval info: USED_PORT: rdaddress 0 0 15 0 INPUT NODEFVAL "rdaddress[14..0]"
+-- Retrieval info: USED_PORT: rdaddress 0 0 14 0 INPUT NODEFVAL "rdaddress[13..0]"
 -- Retrieval info: USED_PORT: rdclock 0 0 0 0 INPUT NODEFVAL "rdclock"
 -- Retrieval info: USED_PORT: rden 0 0 0 0 INPUT VCC "rden"
--- Retrieval info: USED_PORT: wraddress 0 0 15 0 INPUT NODEFVAL "wraddress[14..0]"
+-- Retrieval info: USED_PORT: wraddress 0 0 14 0 INPUT NODEFVAL "wraddress[13..0]"
 -- Retrieval info: USED_PORT: wrclock 0 0 0 0 INPUT VCC "wrclock"
 -- Retrieval info: USED_PORT: wren 0 0 0 0 INPUT GND "wren"
--- Retrieval info: CONNECT: @address_a 0 0 15 0 wraddress 0 0 15 0
--- Retrieval info: CONNECT: @address_b 0 0 15 0 rdaddress 0 0 15 0
+-- Retrieval info: CONNECT: @address_a 0 0 14 0 wraddress 0 0 14 0
+-- Retrieval info: CONNECT: @address_b 0 0 14 0 rdaddress 0 0 14 0
 -- Retrieval info: CONNECT: @clock0 0 0 0 0 wrclock 0 0 0 0
 -- Retrieval info: CONNECT: @clock1 0 0 0 0 rdclock 0 0 0 0
 -- Retrieval info: CONNECT: @data_a 0 0 16 0 data 0 0 16 0
 -- Retrieval info: CONNECT: @rden_b 0 0 0 0 rden 0 0 0 0
 -- Retrieval info: CONNECT: @wren_a 0 0 0 0 wren 0 0 0 0
 -- Retrieval info: CONNECT: q 0 0 16 0 @q_b 0 0 16 0
--- Retrieval info: GEN_FILE: TYPE_NORMAL ram_dual.vhd TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL ram_dual.inc FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL ram_dual.cmp TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL ram_dual.bsf FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL ram_dual_inst.vhd TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL ram_dual_small.vhd TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL ram_dual_small.inc FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL ram_dual_small.cmp TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL ram_dual_small.bsf FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL ram_dual_small_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: altera_mf
