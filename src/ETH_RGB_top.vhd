@@ -5,11 +5,12 @@ use ieee.numeric_std.all;
 entity ETH_RGB_top is
 	port(
 		
-		clk50      : in  std_ulogic;
+		clk50         : in  std_ulogic;
+		eth_rx_dv     : in  std_logic;
+		eth_rx_data   : in  std_logic_vector(3 downto 0);
 		
 		
-		
-		clk25      : out std_ulogic
+		clk25         : out std_ulogic
 	);
 end entity ETH_RGB_top;
 
@@ -66,5 +67,15 @@ architecture structural of ETH_RGB_top is
 			pll_locked => s_pll_locked,
 			rd_data    => s_rd_data
 		);
-	
+
+	phy_to_ram_inst: component phy_to_ram
+		port map(
+			clk25		=> s_clk25,
+			rx_dv		=> eth_rx_dv,
+			rx_data		=> eth_rx_data,
+			data		=> s_wr_data,
+			wr_address	=> s_wr_address,
+			wren		=> s_wr_enable,
+		);		
+		
 	end architecture structural;
