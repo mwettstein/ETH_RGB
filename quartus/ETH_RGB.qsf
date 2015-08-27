@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "MAX 10 FPGA"
 set_global_assignment -name DEVICE 10M50DAF484C6GES
-set_global_assignment -name TOP_LEVEL_ENTITY DECA_golden_top
+set_global_assignment -name TOP_LEVEL_ENTITY ETH_RGB_top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 14
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "FRI OCT 24 14:09:29 2014"
 set_global_assignment -name LAST_QUARTUS_VERSION 14.1.0
@@ -47,287 +47,8 @@ set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
 set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE "SINGLE COMP IMAGE WITH ERAM"
-set_global_assignment -name VERILOG_FILE DECA_golden_top.v
-set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_CLK_10
-set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_BCLK
-set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_DIN_MFP1
-set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_DOUT_MFP2
-set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_GPIO_MFP5
-set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_MCLK
-set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_MISO_MFP4
-set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_RESET_n
-set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_SCLK_MFP3
-set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_SCL_SS_n
-set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_SDA_MOSI
-set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_SPI_SELECT
-set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_WCLK
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CAP_SENSE_I2C_SCL
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CAP_SENSE_I2C_SDA
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[0]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[1]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[2]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[3]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[4]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[5]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[6]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[7]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[8]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[9]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[10]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[11]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[12]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[13]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[14]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_BA[0]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_BA[1]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_BA[2]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_CAS_n
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_CKE
-set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to DDR3_CK_n
-set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to DDR3_CK_p
-set_instance_assignment -name IO_STANDARD "1.5 V" -to DDR3_CLK_50
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_CS_n
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DM[0]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DM[1]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[0]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[1]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[2]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[3]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[4]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[5]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[6]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[7]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[8]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[9]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[10]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[11]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[12]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[13]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[14]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[15]
-set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to DDR3_DQS_n[0]
-set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to DDR3_DQS_n[1]
-set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to DDR3_DQS_p[0]
-set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to DDR3_DQS_p[1]
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_ODT
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_RAS_n
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_RESET_n
-set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_WE_n
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FLASH_DATA[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FLASH_DATA[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FLASH_DATA[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FLASH_DATA[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FLASH_DCLK
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FLASH_NCSO
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FLASH_RESET_n
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[4]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[5]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[6]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[7]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[8]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[9]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[10]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[11]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[12]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[13]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[14]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[15]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[16]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[17]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[18]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[19]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[20]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[21]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[22]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[23]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[24]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[25]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[26]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[27]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[28]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[29]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[30]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[31]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[32]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[33]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[34]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[35]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[36]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[37]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[38]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[39]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[40]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[41]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[42]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[43]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[4]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[5]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[6]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[7]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[8]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[9]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[10]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[11]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[12]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[13]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[14]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[15]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[16]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[17]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[18]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[19]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[20]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[21]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[22]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GSENSOR_PD
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GSENSOR_ST
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_I2C_SCL
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_I2C_SDA
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_I2S[0]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_I2S[1]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_I2S[2]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_I2S[3]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_LRCLK
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_MCLK
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_SCLK
-set_instance_assignment -name IO_STANDARD "1.2 V" -to HDMI_TX_CLK
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[0]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[1]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[2]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[3]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[4]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[5]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[6]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[7]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[8]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[9]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[10]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[11]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[12]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[13]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[14]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[15]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[16]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[17]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[18]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[19]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[20]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[21]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[22]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[23]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_DE
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_HS
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_INT
-set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_VS
-set_instance_assignment -name IO_STANDARD "1.5 V SCHMITT TRIGGER" -to KEY[0]
-set_instance_assignment -name IO_STANDARD "1.5 V SCHMITT TRIGGER" -to KEY[1]
-set_instance_assignment -name IO_STANDARD "1.2 V" -to LED[0]
-set_instance_assignment -name IO_STANDARD "1.2 V" -to LED[1]
-set_instance_assignment -name IO_STANDARD "1.2 V" -to LED[2]
-set_instance_assignment -name IO_STANDARD "1.2 V" -to LED[3]
-set_instance_assignment -name IO_STANDARD "1.2 V" -to LED[4]
-set_instance_assignment -name IO_STANDARD "1.2 V" -to LED[5]
-set_instance_assignment -name IO_STANDARD "1.2 V" -to LED[6]
-set_instance_assignment -name IO_STANDARD "1.2 V" -to LED[7]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LIGHT_I2C_SCL
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LIGHT_I2C_SDA
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LIGHT_INT
-set_instance_assignment -name IO_STANDARD "2.5 V" -to MAX10_CLK1_50
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MAX10_CLK2_50
-set_instance_assignment -name IO_STANDARD "2.5 V" -to MIPI_CORE_EN
-set_instance_assignment -name IO_STANDARD "2.5 V" -to MIPI_I2C_SCL
-set_instance_assignment -name IO_STANDARD "2.5 V" -to MIPI_I2C_SDA
-set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MC_n
-set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MC_p
-set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MD_n[0]
-set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MD_n[1]
-set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MD_n[2]
-set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MD_n[3]
-set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MD_p[0]
-set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MD_p[1]
-set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MD_p[2]
-set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MD_p[3]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to MIPI_MCLK
-set_instance_assignment -name IO_STANDARD LVDS -to MIPI_MC_p
-set_instance_assignment -name IO_STANDARD LVDS -to MIPI_MD_p[0]
-set_instance_assignment -name IO_STANDARD LVDS -to MIPI_MD_p[1]
-set_instance_assignment -name IO_STANDARD LVDS -to MIPI_MD_p[2]
-set_instance_assignment -name IO_STANDARD LVDS -to MIPI_MD_p[3]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to MIPI_RESET_n
-set_instance_assignment -name IO_STANDARD "2.5 V" -to MIPI_WP
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_COL
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_CRS
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_MDC
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_MDIO
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to NET_PCF_EN
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_RESET_n
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_RXD[0]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_RXD[1]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_RXD[2]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_RXD[3]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_RX_CLK
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_RX_DV
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_RX_ER
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_TXD[0]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_TXD[1]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_TXD[2]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_TXD[3]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_TX_CLK
-set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_TX_EN
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PMONITOR_ALERT
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PMONITOR_I2C_SCL
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PMONITOR_I2C_SDA
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BBB_PWR_BUT
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RH_TEMP_DRDY_n
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RH_TEMP_I2C_SCL
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RH_TEMP_I2C_SDA
-set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_CLK
-set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_CMD
-set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_CMD_DIR
-set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_D0_DIR
-set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_D123_DIR
-set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_DAT[0]
-set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_DAT[1]
-set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_DAT[2]
-set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_DAT[3]
-set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_FB_CLK
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_SEL
-set_instance_assignment -name IO_STANDARD "1.5 V SCHMITT TRIGGER" -to SW[0]
-set_instance_assignment -name IO_STANDARD "1.5 V SCHMITT TRIGGER" -to SW[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BBB_SYS_RESET_n
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TEMP_CS_n
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TEMP_SC
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TEMP_SIO
-set_instance_assignment -name IO_STANDARD "1.2 V" -to USB_CLKIN
-set_instance_assignment -name IO_STANDARD "1.5 V" -to USB_CLKOUT
-set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_CLKOUT_NOPLL
-set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_CS
-set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DATA[0]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DATA[1]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DATA[2]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DATA[3]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DATA[4]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DATA[5]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DATA[6]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DATA[7]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DIR
-set_instance_assignment -name IO_STANDARD "1.2 V" -to USB_FAULT_n
-set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_NXT
-set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_RESET_n
-set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_STP
 set_location_assignment PIN_M9 -to ADC_CLK_10
 set_location_assignment PIN_R14 -to AUDIO_BCLK
 set_location_assignment PIN_P15 -to AUDIO_DIN_MFP1
@@ -605,4 +326,293 @@ set_location_assignment PIN_E16 -to USB_RESET_n
 set_location_assignment PIN_J12 -to USB_STP
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_CLK_10
+set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_BCLK
+set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_DIN_MFP1
+set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_DOUT_MFP2
+set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_GPIO_MFP5
+set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_MCLK
+set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_MISO_MFP4
+set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_RESET_n
+set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_SCLK_MFP3
+set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_SCL_SS_n
+set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_SDA_MOSI
+set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_SPI_SELECT
+set_instance_assignment -name IO_STANDARD "1.5 V" -to AUDIO_WCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CAP_SENSE_I2C_SCL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CAP_SENSE_I2C_SDA
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[0]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[1]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[2]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[3]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[4]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[5]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[6]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[7]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[8]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[9]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[10]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[11]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[12]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[13]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_A[14]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_BA[0]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_BA[1]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_BA[2]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_CAS_n
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_CKE
+set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to DDR3_CK_n
+set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to DDR3_CK_p
+set_instance_assignment -name IO_STANDARD "1.5 V" -to DDR3_CLK_50
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_CS_n
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DM[0]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DM[1]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[0]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[1]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[2]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[3]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[4]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[5]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[6]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[7]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[8]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[9]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[10]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[11]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[12]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[13]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[14]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_DQ[15]
+set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to DDR3_DQS_n[0]
+set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to DDR3_DQS_n[1]
+set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to DDR3_DQS_p[0]
+set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to DDR3_DQS_p[1]
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_ODT
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_RAS_n
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_RESET_n
+set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to DDR3_WE_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FLASH_DATA[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FLASH_DATA[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FLASH_DATA[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FLASH_DATA[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FLASH_DCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FLASH_NCSO
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FLASH_RESET_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[13]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[14]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[15]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[16]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[17]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[18]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[19]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[20]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[21]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[22]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[23]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[24]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[25]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[26]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[27]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[28]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[29]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[30]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[31]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[32]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[33]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[34]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[35]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[36]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[37]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[38]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[39]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[40]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[41]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[42]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO0_D[43]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[13]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[14]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[15]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[16]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[17]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[18]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[19]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[20]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[21]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1_D[22]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GSENSOR_PD
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GSENSOR_ST
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_I2C_SCL
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_I2C_SDA
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_I2S[0]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_I2S[1]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_I2S[2]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_I2S[3]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_LRCLK
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_MCLK
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_SCLK
+set_instance_assignment -name IO_STANDARD "1.2 V" -to HDMI_TX_CLK
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[0]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[1]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[2]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[3]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[4]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[5]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[6]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[7]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[8]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[9]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[10]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[11]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[12]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[13]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[14]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[15]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[16]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[17]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[18]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[19]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[20]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[21]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[22]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_D[23]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_DE
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_HS
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_INT
+set_instance_assignment -name IO_STANDARD "1.8 V" -to HDMI_TX_VS
+set_instance_assignment -name IO_STANDARD "1.5 V SCHMITT TRIGGER" -to KEY[0]
+set_instance_assignment -name IO_STANDARD "1.5 V SCHMITT TRIGGER" -to KEY[1]
+set_instance_assignment -name IO_STANDARD "1.2 V" -to LED[0]
+set_instance_assignment -name IO_STANDARD "1.2 V" -to LED[1]
+set_instance_assignment -name IO_STANDARD "1.2 V" -to LED[2]
+set_instance_assignment -name IO_STANDARD "1.2 V" -to LED[3]
+set_instance_assignment -name IO_STANDARD "1.2 V" -to LED[4]
+set_instance_assignment -name IO_STANDARD "1.2 V" -to LED[5]
+set_instance_assignment -name IO_STANDARD "1.2 V" -to LED[6]
+set_instance_assignment -name IO_STANDARD "1.2 V" -to LED[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LIGHT_I2C_SCL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LIGHT_I2C_SDA
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LIGHT_INT
+set_instance_assignment -name IO_STANDARD "2.5 V" -to MAX10_CLK1_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MAX10_CLK2_50
+set_instance_assignment -name IO_STANDARD "2.5 V" -to MIPI_CORE_EN
+set_instance_assignment -name IO_STANDARD "2.5 V" -to MIPI_I2C_SCL
+set_instance_assignment -name IO_STANDARD "2.5 V" -to MIPI_I2C_SDA
+set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MC_n
+set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MC_p
+set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MD_n[0]
+set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MD_n[1]
+set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MD_n[2]
+set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MD_n[3]
+set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MD_p[0]
+set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MD_p[1]
+set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MD_p[2]
+set_instance_assignment -name IO_STANDARD "1.2 V" -to MIPI_LP_MD_p[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to MIPI_MCLK
+set_instance_assignment -name IO_STANDARD LVDS -to MIPI_MC_p
+set_instance_assignment -name IO_STANDARD LVDS -to MIPI_MD_p[0]
+set_instance_assignment -name IO_STANDARD LVDS -to MIPI_MD_p[1]
+set_instance_assignment -name IO_STANDARD LVDS -to MIPI_MD_p[2]
+set_instance_assignment -name IO_STANDARD LVDS -to MIPI_MD_p[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to MIPI_RESET_n
+set_instance_assignment -name IO_STANDARD "2.5 V" -to MIPI_WP
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_COL
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_CRS
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_MDC
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_MDIO
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to NET_PCF_EN
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_RESET_n
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_RXD[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_RXD[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_RXD[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_RXD[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_RX_CLK
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_RX_DV
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_RX_ER
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_TXD[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_TXD[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_TXD[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_TXD[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_TX_CLK
+set_instance_assignment -name IO_STANDARD "2.5 V" -to NET_TX_EN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PMONITOR_ALERT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PMONITOR_I2C_SCL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PMONITOR_I2C_SDA
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BBB_PWR_BUT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RH_TEMP_DRDY_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RH_TEMP_I2C_SCL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RH_TEMP_I2C_SDA
+set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_CLK
+set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_CMD
+set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_CMD_DIR
+set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_D0_DIR
+set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_D123_DIR
+set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_DAT[0]
+set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_DAT[1]
+set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_DAT[2]
+set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_DAT[3]
+set_instance_assignment -name IO_STANDARD "1.5 V" -to SD_FB_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_SEL
+set_instance_assignment -name IO_STANDARD "1.5 V SCHMITT TRIGGER" -to SW[0]
+set_instance_assignment -name IO_STANDARD "1.5 V SCHMITT TRIGGER" -to SW[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BBB_SYS_RESET_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TEMP_CS_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TEMP_SC
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TEMP_SIO
+set_instance_assignment -name IO_STANDARD "1.2 V" -to USB_CLKIN
+set_instance_assignment -name IO_STANDARD "1.5 V" -to USB_CLKOUT
+set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_CLKOUT_NOPLL
+set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_CS
+set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DATA[0]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DATA[1]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DATA[2]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DATA[3]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DATA[4]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DATA[5]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DATA[6]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DATA[7]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_DIR
+set_instance_assignment -name IO_STANDARD "1.2 V" -to USB_FAULT_n
+set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_NXT
+set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_RESET_n
+set_instance_assignment -name IO_STANDARD "1.8 V" -to USB_STP
+set_global_assignment -name VHDL_FILE ../lib/altera_lib/hdl/my_altpll.vhd
+set_global_assignment -name VHDL_FILE ../src/RGB_FSM.vhd
+set_global_assignment -name VHDL_FILE ../src/ram_top.vhd
+set_global_assignment -name VHDL_FILE ../src/ram_dual_small.vhd
+set_global_assignment -name VHDL_FILE ../src/ram_dual.vhd
+set_global_assignment -name VHDL_FILE ../src/phy_to_ram.vhd
+set_global_assignment -name VHDL_FILE ../src/ETH_RGB_top.vhd
+set_global_assignment -name SIGNALTAP_FILE output_files/stp2.stp
+set_global_assignment -name ALLOW_REGISTER_MERGING OFF
+set_global_assignment -name ALLOW_REGISTER_DUPLICATION OFF
+set_global_assignment -name ALLOW_REGISTER_RETIMING OFF
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
