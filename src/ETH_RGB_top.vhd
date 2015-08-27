@@ -67,7 +67,7 @@ architecture structural of ETH_RGB_top is
 	signal s_wr_address 	: std_logic_vector(16 downto 0);
 	signal s_wr_enable 	: std_logic;
 	signal s_rd_enable 	: STD_LOGIC;
-	signal s_rd_data 		: std_logic_vector(15 downto 0);
+	signal s_rd_data 		: std_logic_vector(15 downto 0);	
 	
 	begin
 
