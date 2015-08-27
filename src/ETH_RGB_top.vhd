@@ -12,7 +12,9 @@ entity ETH_RGB_top is
 		NET_TX_EN		: out std_logic;
 		NET_TXD			: out std_logic_vector(3 downto 0);
 		NET_PCF_EN		: out std_logic;
-		NET_GPIO1_D		: out std_logic_vector(22 downto 0)
+		GPIO1_D		: out std_logic_vector(21 downto 0);
+		debug 			: out std_logic
+		
 	);
 end entity ETH_RGB_top;
 
@@ -68,14 +70,15 @@ architecture structural of ETH_RGB_top is
 	signal s_wr_enable 	: std_logic;
 	signal s_rd_enable 	: STD_LOGIC;
 	signal s_rd_data 		: std_logic_vector(15 downto 0);	
+	signal s_gpios			: std_logic_vector(21 downto 0) := (others => '0');
 	
 	begin
 
 	pll_inst : my_altpll
 		port map(areset => '0',
 			     inclk0 => MAX10_CLK1_50,
-			     c0     => s_clk25,		-- currently not used
-			     c1     => s_clk40,
+			     c0     => s_clk40,		-- currently not used
+			     c1     => s_clk25,
 			     locked => s_pll_locked);
 			     
 	ram_inst: component ram_top
@@ -106,12 +109,12 @@ architecture structural of ETH_RGB_top is
 		port map(
 			clk_40		=> s_clk40,
 			reset_n		=> '1',
-			v_sync      => NET_GPIO1_D(0),
-			h_sync      => NET_GPIO1_D(2),
-			data_en     => NET_GPIO1_D(4),
-			red_out     => NET_GPIO1_D(9 downto 5),
-			green_out   => NET_GPIO1_D(15 downto 10),
-			blue_out    => NET_GPIO1_D(20 downto 16)
+			v_sync      => s_gpios(0),
+			h_sync      => s_gpios(2),
+			data_en     => s_gpios(4),
+			red_out     => s_gpios(9 downto 5),
+			green_out   => s_gpios(15 downto 10),
+			blue_out    => s_gpios(20 downto 16)
 		);
 
 		NET_RESET_n 		<= '1';
@@ -119,9 +122,12 @@ architecture structural of ETH_RGB_top is
 		NET_TXD				<= (others => '0');
 		NET_PCF_EN			<= '0';
 		
-		NET_GPIO1_D(1)		<= s_rd_data(3); -- '0'
-		NET_GPIO1_D(3)		<= '0';
-		NET_GPIO1_D(21)	<= s_clk40;		
-		NET_GPIO1_D(22)	<= '0';				
+		s_gpios(1)		<= '0';
+		s_gpios(3)		<= '0';
+		s_gpios(21)		<= s_clk40;		
+		GPIO1_D    		<= s_gpios;
+		
+		debug				<= s_gpios(21);
+		
 		
 	end architecture structural;
