@@ -1,0 +1,5 @@
+filelist.txt
+platform_setup.tcl
+DECA_golden_top.v
+master_image/DECA_golden_top.sof
+master_image/DECA_golden_top.pof
