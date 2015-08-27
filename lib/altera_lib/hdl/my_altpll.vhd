@@ -153,9 +153,9 @@ BEGIN
 		clk0_duty_cycle => 50,
 		clk0_multiply_by => 4,
 		clk0_phase_shift => "0",
-		clk1_divide_by => 5,
+		clk1_divide_by => 2,
 		clk1_duty_cycle => 50,
-		clk1_multiply_by => 8,
+		clk1_multiply_by => 1,
 		clk1_phase_shift => "0",
 		compensate_clock => "CLK0",
 		inclk0_input_frequency => 20000,
@@ -239,11 +239,11 @@ END SYN;
 -- Retrieval info: PRIVATE: CUR_FBIN_CLK STRING "c0"
 -- Retrieval info: PRIVATE: DEVICE_SPEED_GRADE STRING "Any"
 -- Retrieval info: PRIVATE: DIV_FACTOR0 NUMERIC "5"
--- Retrieval info: PRIVATE: DIV_FACTOR1 NUMERIC "5"
+-- Retrieval info: PRIVATE: DIV_FACTOR1 NUMERIC "2"
 -- Retrieval info: PRIVATE: DUTY_CYCLE0 STRING "50.00000000"
 -- Retrieval info: PRIVATE: DUTY_CYCLE1 STRING "50.00000000"
 -- Retrieval info: PRIVATE: EFF_OUTPUT_FREQ_VALUE0 STRING "40.000000"
--- Retrieval info: PRIVATE: EFF_OUTPUT_FREQ_VALUE1 STRING "80.000000"
+-- Retrieval info: PRIVATE: EFF_OUTPUT_FREQ_VALUE1 STRING "25.000000"
 -- Retrieval info: PRIVATE: EXPLICIT_SWITCHOVER_COUNTER STRING "0"
 -- Retrieval info: PRIVATE: EXT_FEEDBACK_RADIO STRING "0"
 -- Retrieval info: PRIVATE: GLOCKED_COUNTER_EDIT_CHANGED STRING "1"
@@ -269,7 +269,7 @@ END SYN;
 -- Retrieval info: PRIVATE: MIRROR_CLK0 STRING "0"
 -- Retrieval info: PRIVATE: MIRROR_CLK1 STRING "0"
 -- Retrieval info: PRIVATE: MULT_FACTOR0 NUMERIC "4"
--- Retrieval info: PRIVATE: MULT_FACTOR1 NUMERIC "8"
+-- Retrieval info: PRIVATE: MULT_FACTOR1 NUMERIC "1"
 -- Retrieval info: PRIVATE: NORMAL_MODE_RADIO STRING "1"
 -- Retrieval info: PRIVATE: OUTPUT_FREQ0 STRING "100.00000000"
 -- Retrieval info: PRIVATE: OUTPUT_FREQ1 STRING "100.00000000"
@@ -322,9 +322,9 @@ END SYN;
 -- Retrieval info: CONSTANT: CLK0_DUTY_CYCLE NUMERIC "50"
 -- Retrieval info: CONSTANT: CLK0_MULTIPLY_BY NUMERIC "4"
 -- Retrieval info: CONSTANT: CLK0_PHASE_SHIFT STRING "0"
--- Retrieval info: CONSTANT: CLK1_DIVIDE_BY NUMERIC "5"
+-- Retrieval info: CONSTANT: CLK1_DIVIDE_BY NUMERIC "2"
 -- Retrieval info: CONSTANT: CLK1_DUTY_CYCLE NUMERIC "50"
--- Retrieval info: CONSTANT: CLK1_MULTIPLY_BY NUMERIC "8"
+-- Retrieval info: CONSTANT: CLK1_MULTIPLY_BY NUMERIC "1"
 -- Retrieval info: CONSTANT: CLK1_PHASE_SHIFT STRING "0"
 -- Retrieval info: CONSTANT: COMPENSATE_CLOCK STRING "CLK0"
 -- Retrieval info: CONSTANT: INCLK0_INPUT_FREQUENCY NUMERIC "20000"
