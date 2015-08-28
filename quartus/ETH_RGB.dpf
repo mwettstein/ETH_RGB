@@ -2,17 +2,17 @@
 
 <pin_planner>
 	<pin_info>
-		<pin name="DDR3_CK_n" source="Assignments" diff_pair_node="DDR3_CK_p" >
+		<pin name="DDR3_CK_n" source="Assignments" >
 		</pin>
-		<pin name="DDR3_CK_p" source="Assignments" diff_pair_node="DDR3_CK_n" >
+		<pin name="DDR3_CK_p" source="Assignments" >
 		</pin>
-		<pin name="DDR3_DQS_n[0]" source="Assignments" diff_pair_node="DDR3_DQS_p[0]" >
+		<pin name="DDR3_DQS_n[0]" source="Assignments" >
 		</pin>
-		<pin name="DDR3_DQS_n[1]" source="Assignments" diff_pair_node="DDR3_DQS_p[1]" >
+		<pin name="DDR3_DQS_n[1]" source="Assignments" >
 		</pin>
-		<pin name="DDR3_DQS_p[0]" source="Assignments" diff_pair_node="DDR3_DQS_n[0]" >
+		<pin name="DDR3_DQS_p[0]" source="Assignments" >
 		</pin>
-		<pin name="DDR3_DQS_p[1]" source="Assignments" diff_pair_node="DDR3_DQS_n[1]" >
+		<pin name="DDR3_DQS_p[1]" source="Assignments" >
 		</pin>
 	</pin_info>
 	<buses>

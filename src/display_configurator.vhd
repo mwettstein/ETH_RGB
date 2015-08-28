@@ -28,7 +28,7 @@ ARCHITECTURE rtl OF display_configurator IS
 	
 	constant C_WAIT_100MS: integer := 5_000_000;
 	constant C_WAIT_300MS: integer := 15_000_000;
-	constant C_I2C_ADDR:   std_logic_vector(6 downto 0) := := "1100100";   -- 0x64
+	constant C_I2C_ADDR:   std_logic_vector(6 downto 0) := "1100100";   -- 0x64
 	
 	type stateType is (idle, after100ms, after300ms, after301ms, waitforever);					   
 	signal state 			: stateType := idle;
@@ -36,17 +36,17 @@ ARCHITECTURE rtl OF display_configurator IS
 	signal i2c_ena          : std_logic := '0';
 	signal i2c_addr         : std_logic_vector(6 downto 0) := C_I2C_ADDR;
 	signal i2c_rw           : std_logic := '0';
-	signal i2c_data_wr      : std_logic_vector(7 downto 0) := '0';
+	signal i2c_data_wr      : std_logic_vector(7 downto 0) := (others => '0');
 	signal i2c_busy         : std_logic := '0';
 	signal busy_prev        : std_logic := '0';
 	
-	variable busy_cnt       : integer range 0 to 10 := 0;
+	
 
 BEGIN
 
 	i2c_master_inst : i2c_master
 		port map(clk		=> clk50,
-				 reset_n 	=> '0',
+				 reset_n 	=> '1',
 				 ena       	=> i2c_ena,         --latch in command
 				 addr       => i2c_addr,        --address of target slave
 				 rw         => i2c_rw,          --'0' is write, '1' is read
@@ -58,6 +58,7 @@ BEGIN
 				 scl       	=> scl_i2c);
 
 machwastolles : process(clk50)
+	variable busy_cnt       : integer range 0 to 10 := 0;
 begin
 	if rising_edge(clk50) then
 		case state is
@@ -83,17 +84,18 @@ begin
 				  i2c_data_wr <= x"06";              		 --data to be written (address of LED0 register)
 				WHEN 1 =>                                  --1st busy high: command 1 latched, okay to issue command 2
 				  i2c_data_wr <= x"01";              		 --data to be written (LED0 register value)
-				WHEN 2 =>                                  --2nd busy high: command 2 latched, ready to stop
+				WHEN OTHERS =>                                  --2nd busy high: command 2 latched, ready to stop
 				  i2c_ena <= '0';                            --deassert enable to stop transaction after command 4
 				  IF(i2c_busy = '0') THEN                    --indicates data write is finished
-					busy_cnt := 0;                           --reset busy_cnt for next transaction
+					                     
 					cnt <= cnt + 1;
 					if cnt = C_WAIT_300MS then
-						state			<= after300ms;		 --transaction complete, go to next state in design after 300ms
+						state			<= after300ms;					 --transaction complete, go to next state in design after 300ms
+						busy_cnt := 0;  								 --reset busy_cnt for next transaction
 						cnt				<= 0;
 					end if;                   
 				  END IF;
-				WHEN OTHERS => NULL;
+				--WHEN OTHERS => NULL;
 			  END CASE;
 			
 			when after300ms =>

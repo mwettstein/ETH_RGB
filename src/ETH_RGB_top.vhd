@@ -53,6 +53,9 @@ architecture structural of ETH_RGB_top is
 	component rgb_fsm
 		port( clk_40		: in  std_ulogic;
 				reset_n		: in  std_ulogic;
+				rd_address  : out std_logic_vector(16 downto 0);
+				rd_enable   : out STD_LOGIC;
+				rd_data     : in  std_logic_vector(15 downto 0);
 				v_sync      : out std_logic;
 				h_sync      : out std_logic;
 				data_en     : out std_logic;
@@ -60,6 +63,12 @@ architecture structural of ETH_RGB_top is
 				green_out   : out std_logic_vector(5 downto 0);
 				blue_out    : out std_logic_vector(4 downto 0));
 	end component rgb_fsm;
+	
+	component display_configurator
+		port( clk50	  		: IN    STD_ULOGIC;
+				sda_i2c   	: INOUT STD_LOGIC;
+				scl_i2c	  	: INOUT STD_LOGIC);			                
+	end component display_configurator;
 		
 	signal s_clk25 		: std_logic;
 	signal s_clk40 		: std_logic;
@@ -71,6 +80,7 @@ architecture structural of ETH_RGB_top is
 	signal s_rd_enable 	: STD_LOGIC;
 	signal s_rd_data 		: std_logic_vector(15 downto 0);	
 	signal s_gpios			: std_logic_vector(21 downto 0) := (others => '0');
+	signal s_sda_i2c, s_scl_i2c		: std_logic;
 	
 	begin
 
@@ -109,6 +119,9 @@ architecture structural of ETH_RGB_top is
 		port map(
 			clk_40		=> s_clk40,
 			reset_n		=> '1',
+			rd_address  => s_rd_address,
+			rd_enable   => open,
+			rd_data 		=> s_rd_data, 
 			v_sync      => s_gpios(0),
 			h_sync      => s_gpios(2),
 			data_en     => s_gpios(4),
@@ -116,14 +129,20 @@ architecture structural of ETH_RGB_top is
 			green_out   => s_gpios(15 downto 10),
 			blue_out    => s_gpios(20 downto 16)
 		);
+	configurator_inst: component display_configurator
+		port map(
+			clk50 		=> MAX10_CLK1_50,
+			sda_i2c		=> s_sda_i2c,
+			scl_i2c 		=> s_scl_i2c
+		);
 
 		NET_RESET_n 		<= '1';
 		NET_TX_EN			<= '0';
 		NET_TXD				<= (others => '0');
 		NET_PCF_EN			<= '0';
 		
-		s_gpios(1)		<= '0';
-		s_gpios(3)		<= '0';
+		s_gpios(1)		<= s_sda_i2c;
+		s_gpios(3)		<= s_scl_i2c;
 		s_gpios(21)		<= s_clk40;		
 		GPIO1_D    		<= s_gpios;
 		

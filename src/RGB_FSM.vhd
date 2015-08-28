@@ -4,16 +4,19 @@ use ieee.numeric_std.all;
 
 entity rgb_fsm is
 	port(
-		clk_40        : in  std_ulogic;
-		reset_n       : in  std_ulogic;
-
+		clk_40     : in  std_ulogic;
+		reset_n    : in  std_ulogic;
+		--outputs to RAM
+		rd_address : out std_logic_vector(16 downto 0);
+		rd_enable  : out STD_LOGIC;
+		rd_data    : in  std_logic_vector(15 downto 0);
 		-- outputs to TFT
-		v_sync        : out std_logic;
-		h_sync        : out std_logic;
-		data_en       : out std_logic;
-		red_out       : out std_logic_vector(4 downto 0);
-		green_out     : out std_logic_vector(5 downto 0);
-		blue_out      : out std_logic_vector(4 downto 0)
+		v_sync     : out std_logic;
+		h_sync     : out std_logic;
+		data_en    : out std_logic;
+		red_out    : out std_logic_vector(4 downto 0);
+		green_out  : out std_logic_vector(5 downto 0);
+		blue_out   : out std_logic_vector(4 downto 0)
 	);
 
 end entity rgb_fsm;
@@ -61,21 +64,21 @@ begin
 		variable current_state_v, next_state_v : state_type_v; --current and next state declaration for vertical control.
 		variable current_state_h, next_state_h : state_type_h; --current and next state declaration for horizontal control.
 		variable clk_count                     : integer range 0 to 865 := 0;
-		variable line_count                    : integer range 0 to 527 := 0;
+		variable line_count                    : integer range 0 to 527 := 0; --527
+		variable line_count_real               : integer range 0 to 200 := 0;
 		variable data_enable_h                 : std_logic              := '0';
-
-		variable debug_count_clk  : integer := 0;
-		variable debug_count_line : integer := 0;
+		variable debug_count_clk               : integer                := 0;
+		variable debug_count_line              : integer                := 0;
 
 	begin
 		IF reset_n = '0' then
-			s_h_sync        <= '0';
-			s_v_sync        <= '0';
-			
-			red_out         <= (others => '0');
-			green_out       <= (others => '0');
-			blue_out        <= (others => '0');
-			
+			s_h_sync <= '0';
+			s_v_sync <= '0';
+
+			red_out   <= (others => '0');
+			green_out <= (others => '0');
+			blue_out  <= (others => '0');
+
 			current_state_h := h_pulsewidth;
 			current_state_v := v_pulsewidth;
 			clk_count       := 0;
@@ -104,11 +107,19 @@ begin
 				when h_backporch =>
 					s_h_sync      <= '1';
 					data_enable_h := '0';
-					if clk_count < C_H_BACKPORCH then
+					if clk_count < C_H_BACKPORCH - 2 then
 						next_state_h := h_backporch;
+					elsif clk_count = C_H_BACKPORCH - 2 then
+						rd_enable  <= '1';
+						rd_address <= std_logic_vector(to_unsigned(line_count_real * 400 + 0, 17));
+					elsif clk_count = C_H_BACKPORCH - 1 then
+						rd_address <= std_logic_vector(to_unsigned(line_count_real * 400 + 1, 17));
+						rd_enable  <= '1';
 					else
 						clk_count    := 0;
 						next_state_h := h_validdata;
+						rd_address   <= std_logic_vector(to_unsigned(line_count_real * 400 + 2, 17));
+						rd_enable    <= '1';
 					end if;
 
 				--VALIDDATA
@@ -117,9 +128,11 @@ begin
 					data_enable_h := '1';
 					if clk_count < C_H_VALIDDATA then
 						next_state_h := h_validdata;
-						red_out      <= C_TEST_RED;
-						green_out    <= C_TEST_GREEN;
-						blue_out     <= C_TEST_BLUE;
+						rd_address   <= std_logic_vector(to_unsigned(line_count_real * 400 + clk_count + 3, 17));
+						rd_enable    <= '1';
+						red_out      <= rd_data(15 downto 11); --C_TEST_RED;
+						green_out    <= rd_data(10 downto 5); --C_TEST_GREEN;
+						blue_out     <= rd_data(4 downto 0); --C_TEST_BLUE;
 
 					else
 						clk_count    := 0;
@@ -127,6 +140,8 @@ begin
 						green_out    <= (others => '0');
 						blue_out     <= (others => '0');
 						next_state_h := h_frontporch;
+
+						rd_enable <= '0';
 					end if;
 
 				--FRONTPORCH
@@ -147,8 +162,18 @@ begin
 					if clk_count < C_H_BLANK then
 						next_state_h := h_blank;
 					else
-						clk_count        := 0;
-						line_count       := line_count + 1;
+						clk_count  := 0;
+						line_count := line_count + 1;
+						if line_count >= 200 then
+							if line_count >= 400 then
+								line_count_real := line_count mod 400;
+							else
+								line_count_real := line_count mod 200;
+							end if;
+						else 
+							line_count_real := line_count;
+						end if;
+
 						debug_count_line := debug_count_line + 1;
 						next_state_h     := h_pulsewidth;
 					end if;
